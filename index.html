@@ -5,51 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Add this CSS for error messages */
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 4px;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <div class="card">
             <div class="left">
                 <p class="header">Learn to code by watching others</p>
-                <p class="headercontent">See how experience developers solve problems in real-time. Watching scripted tutorials is great, but understanding how developers thinks is invaluable.</p>
+                <p class="headercontent">See how experience developers solve problems in real-time. Watching scripted tutorials is great, but understanding how developers think is invaluable.</p>
             </div>
             <div class="right">
                 <div class="top">
                     <p class="topcontent"><span class="span">Try it free 7 days</span> then $20/mo. thereafter</p>
                 </div>
                 <div class="bottom">
-                    <form action="">
-                        <div class = "input-box">
+                    <form id="form" action="/" novalidate>
+                        <div class="input-box">
                             <input type="text" id="fname" name="fname" placeholder="First Name">
+                            <div class="error-message" id="fname-error"></div>
                         </div>
 
-                        <div>
-                            <input type="text" id="lname" name="lname" placeholder="Last Name"><br>
+                        <div class="input-box">
+                            <input type="text" id="lname" name="lname" placeholder="Last Name">
+                            <div class="error-message" id="lname-error"></div>
                         </div>
 
-                        <div>
-                            <input type="email" id="Email" name="Email" placeholder="Email Adress"><br>
+                        <div class="input-box">
+                            <input type="email" id="Email" name="Email" placeholder="Email Address">
+                            <div class="error-message" id="email-error"></div>
                         </div>
 
-                        <div>
+                        <div class="input-box">
                             <input type="password" id="userpassword" name="userpassword" placeholder="Password">
+                            <div class="error-message" id="userpassword-error"></div>
                         </div>
-                        <div>
-                            <input type="submit" value = "CLAIM YOUR FREE TRIAL" class="button">
+                        <div class="submit-button">
+                            <input type="submit" id="submit" value="CLAIM YOUR FREE TRIAL" class="button">
                         </div>
                         <div class="useragreement">
-                            <p class="agreement">By clicking the button you are agreeing to our <span class = "terms">terms and services</span></p>
+                            <p class="agreement">By clicking the button you are agreeing to our <span class="terms">terms and services</span></p>
                         </div>
                     </form>
-
-
-
                 </div>
             </div>
         </div>
     </div>
-    
 
-    <script src="script.js"></script>
+    <script src="script.js">
+ 
+    </script>
 </body>
 </html>

@@ -1,5 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 4px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+  }
+  .input-box.error input{
+    border: 2px solid red;
+  }
+  
+
 * {
   box-sizing: border-box;
   margin: 0px;
@@ -84,7 +99,14 @@
     
 }
 
-input{
+.input-box input{
+    height: 55px;
+    width: 100%;
+    border-radius: 10px;
+    border: 2px solid #eaeaea;
+    padding-left: 25px;
+}
+.submit-button input{
     height: 55px;
     width: 100%;
     border-radius: 10px;
@@ -96,6 +118,7 @@ form{
     height: 100%;
     width: 100%;
     justify-content: space-around;
+    background: yellow;
     
 }
 
@@ -118,3 +141,25 @@ form{
     justify-content: center;
     align-items: center;
 }
+
+
+
+/* .input-box{
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+} */
+
+.input-box input{
+    border: 2px solid #eaeaea;
+}
+
+.input-box input:focus{
+    
+}
+
+/* .input-box input.error {
+    border-color: red;
+  } */
+
