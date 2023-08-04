@@ -1,37 +1,3 @@
-// document.addEventListener("DOMContentLoaded", function () {
-//     const form = document.getElementById("form");
-//     const firstNameInput = document.getElementById("fname");
-//     const firstNameError = document.getElementById("fname-error");
-  
-//     form.addEventListener("submit", function (event) {
-//       event.preventDefault(); // Prevent form submission for now, we'll handle it manually
-  
-//       // Clear any previous error message
-//       firstNameError.textContent = "";
-  
-//       // Validation check for First Name
-//       if (firstNameInput.value.trim() === "") {
-//         firstNameError.textContent = "First Name is required.";
-//         firstNameInput.classList.add("error");
-//       } else {
-//         firstNameInput.classList.remove("error");
-//       }
-  
-//       // If the form is valid, submit it (you can replace this with your desired form submission logic)
-//       if (!firstNameError.textContent) {
-//         form.submit();
-//       }
-//     });
-  
-//     // Event listener to remove error message and red border on input focus
-//     firstNameInput.addEventListener("input", function () {
-//       if (firstNameInput.classList.contains("error")) {
-//         firstNameError.textContent = "";
-//         firstNameInput.classList.remove("error");
-//       }
-//     });
-//   });
-  
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("form");
     const firstNameInput = document.getElementById("fname");
@@ -55,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
       
 
       if (firstNameInput.value.trim() === ""){
-        firstNameError.textContent = "First Name is required and must be an alphabet.";
+        firstNameError.textContent = "First Name cannot be empty.";
         firstNameInput.style.border = "2px solid red";
       }else if(!isNaN(firstNameInput.value)){
         firstNameError.textContent ="Invalid inputs!";
@@ -67,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       
       if (lastNameInput.value.trim() === "") {
-        lastNameError.textContent = "Last Name is required and must be an alphabet.";
+        lastNameError.textContent = "Last Name cannot be empty.";
         lastNameInput.style.border = "2px solid red";
       } else if(!isNaN(lastNameInput.value)){
         lastNameError.textContent = "Invalid inputs!";
@@ -78,12 +44,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if(emailInput.value.trim() ===""){
-        emailError.textContent = "Email required";
+        emailError.textContent = "Email cannot be empty";
         emailInput.style.border = "2px solid red";
       } else if (!emailRegex.test(emailInput.value)) {
         emailError.textContent = "Looks like this is not an email";
         emailInput.style.border = "2px solid red";
       } else{
+        emailInput.style.border = "2px solid #eaeaea";
+      }
+
+      if(passwordInput.value.trim() === ""){
+        passwordError.textContent = "Password cannot be empty.";
+        passwordInput.style.border = "2px solid red";
+      } else if(passwordInput.value.length < 6){
+        passwordError.textContent = "Password should not be less than 6 characters";
+        passwordInput.style.border = "2px solid red";
+      } else {
         emailInput.style.border = "2px solid #eaeaea";
       }
 
@@ -93,12 +69,21 @@ document.addEventListener("DOMContentLoaded", function () {
     firstNameInput.addEventListener("input", function(){
         firstNameError.textContent = "";
         firstNameInput.style.border = "2px solid #eaeaea"
-    })
+    });
     lastNameInput.addEventListener("input", function () {
       
         lastNameError.textContent = "";
         lastNameInput.style.border = "2px solid #eaeaea";
     });
+    emailInput.addEventListener("input", function(){
+        emailError.textContent = "";
+        emailInput.style.border = "2px solid #eaeaea"
+    });
+    passwordInput.addEventListener("input", function(){
+        passwordError.textContent = "";
+        passwordInput.style.border = "2px solid #eaeaea"
+    })
+
     
 });
   

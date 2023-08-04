@@ -91,7 +91,7 @@
 .bottom{
     height: 85%;
     width: 100%;
-    background: white;
+    background: #ffffff;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
