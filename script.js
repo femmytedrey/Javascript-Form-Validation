@@ -1,89 +1,66 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const form = document.getElementById("form");
+  const form = document.getElementById("form");
+  const inputBoxes = document.querySelectorAll(".input-box");
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    // Clear any previous error messages and remove the 'error' class from all input boxes
+    inputBoxes.forEach((inputBox) => {
+      const input = inputBox.querySelector("input");
+      const errorElement = inputBox.querySelector(".error-message");
+      errorElement.textContent = "";
+      inputBox.classList.remove("error");
+    });
+
     const firstNameInput = document.getElementById("fname");
-    const firstNameError = document.getElementById("fname-error")
+    const firstNameError = document.getElementById("fname-error");
     const lastNameInput = document.getElementById("lname");
     const lastNameError = document.getElementById("lname-error");
     const emailInput = document.getElementById("Email");
-    const emailError = document.getElementById("email-error")
+    const emailError = document.getElementById("email-error");
     const passwordInput = document.getElementById("userpassword");
     const passwordError = document.getElementById("userpassword-error");
-  
-    form.addEventListener("submit", function (event) {
-      event.preventDefault();
-  
-      // Clear any previous error message
-      firstNameError.textContent = "";
-      lastNameError.textContent = "";
-      emailError.textContent = "";
-      passwordError.textContent = "";
 
-      
+    if (firstNameInput.value.trim() === "") {
+      displayErrorMessage(firstNameError, "First Name cannot be empty.");
+    } else if (!isNaN(firstNameInput.value)) {
+      displayErrorMessage(firstNameError, "Invalid inputs!");
+    }
 
-      if (firstNameInput.value.trim() === ""){
-        firstNameError.textContent = "First Name cannot be empty.";
-        firstNameInput.style.border = "2px solid red";
-      }else if(!isNaN(firstNameInput.value)){
-        firstNameError.textContent ="Invalid inputs!";
-        firstNameInput.style.border = "2px solid red"
-      }
-      else{
-        firstNameInput.style.border = "2px solid #eaeaea"
-      }
+    if (lastNameInput.value.trim() === "") {
+      displayErrorMessage(lastNameError, "Last Name cannot be empty.");
+    } else if (!isNaN(lastNameInput.value)) {
+      displayErrorMessage(lastNameError, "Invalid inputs!");
+    }
 
-      
-      if (lastNameInput.value.trim() === "") {
-        lastNameError.textContent = "Last Name cannot be empty.";
-        lastNameInput.style.border = "2px solid red";
-      } else if(!isNaN(lastNameInput.value)){
-        lastNameError.textContent = "Invalid inputs!";
-        lastNameInput.style.border = "2px solid red";
-      }else {
-        lastNameInput.style.border = "2px solid #eaeaea";
-      }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (emailInput.value.trim() === "") {
+      displayErrorMessage(emailError, "Email cannot be empty.");
+    } else if (!emailRegex.test(emailInput.value)) {
+      displayErrorMessage(emailError, "Looks like this is not an email.");
+    }
 
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if(emailInput.value.trim() ===""){
-        emailError.textContent = "Email cannot be empty";
-        emailInput.style.border = "2px solid red";
-      } else if (!emailRegex.test(emailInput.value)) {
-        emailError.textContent = "Looks like this is not an email";
-        emailInput.style.border = "2px solid red";
-      } else{
-        emailInput.style.border = "2px solid #eaeaea";
-      }
+    if (passwordInput.value.trim() === "") {
+      displayErrorMessage(passwordError, "Password cannot be empty.");
+    } else if (passwordInput.value.length < 6) {
+      displayErrorMessage(passwordError, "Password should not be less than 6 characters.");
+    }
+  });
 
-      if(passwordInput.value.trim() === ""){
-        passwordError.textContent = "Password cannot be empty.";
-        passwordInput.style.border = "2px solid red";
-      } else if(passwordInput.value.length < 6){
-        passwordError.textContent = "Password should not be less than 6 characters";
-        passwordInput.style.border = "2px solid red";
-      } else {
-        emailInput.style.border = "2px solid #eaeaea";
-      }
+  // Function to display error message and add 'error' class to the input box
+  function displayErrorMessage(errorElement, message) {
+    errorElement.textContent = message;
+    errorElement.parentElement.classList.add("error");
+  }
 
-      
+  // Add event listener for each input field to clear the error message on input
+  inputBoxes.forEach((inputBox) => {
+    const input = inputBox.querySelector("input");
+    const errorElement = inputBox.querySelector(".error-message");
+    input.addEventListener("input", function () {
+      errorElement.textContent = "";
+      inputBox.classList.remove("error");
     });
-
-    firstNameInput.addEventListener("input", function(){
-        firstNameError.textContent = "";
-        firstNameInput.style.border = "2px solid #eaeaea"
-    });
-    lastNameInput.addEventListener("input", function () {
-      
-        lastNameError.textContent = "";
-        lastNameInput.style.border = "2px solid #eaeaea";
-    });
-    emailInput.addEventListener("input", function(){
-        emailError.textContent = "";
-        emailInput.style.border = "2px solid #eaeaea"
-    });
-    passwordInput.addEventListener("input", function(){
-        passwordError.textContent = "";
-        passwordInput.style.border = "2px solid #eaeaea"
-    })
-
-    
+  });
 });
-  
