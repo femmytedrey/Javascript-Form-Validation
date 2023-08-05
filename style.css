@@ -141,14 +141,6 @@ form{
 }
 
 
-
-/* .input-box{
-    display: flex;
-    flex-direction: column;
-    padding: 0;
-    margin: 0;
-} */
-
 .input-box input{
     border: 2px solid #eaeaea;
 }
@@ -162,12 +154,6 @@ form{
     cursor: pointer;
 
 }
-
-
-/* .input-box input.error {
-    border-color: red;
-  } */
-
 
 
 
