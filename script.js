@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", function () {
   form.addEventListener("submit", function (event) {
     event.preventDefault();
 
-    // Clear any previous error messages and remove the 'error' class from all input boxes
     inputBoxes.forEach((inputBox) => {
       const input = inputBox.querySelector("input");
       const errorElement = inputBox.querySelector(".error-message");
@@ -48,13 +47,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Function to display error message and add 'error' class to the input box
   function displayErrorMessage(errorElement, message) {
     errorElement.textContent = message;
     errorElement.parentElement.classList.add("error");
   }
 
-  // Add event listener for each input field to clear the error message on input
   inputBoxes.forEach((inputBox) => {
     const input = inputBox.querySelector("input");
     const errorElement = inputBox.querySelector(".error-message");
