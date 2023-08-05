@@ -172,7 +172,7 @@ form{
 
 
   /* Media query for mobile view */
-@media only screen and (max-width: 767px) {
+  @media only screen and (max-width: 992px) {
     /* Add your styles for mobile view here */
     .container{
         width: 100%;
@@ -183,7 +183,7 @@ form{
         background-image: url(images/bg-intro-mobile.png);
         background-color: #FF7978;
         padding-top: 30px;
-        padding-bottom: 30px;
+        padding-bottom: 70px;
     }
     .card{
         flex-direction: column;
